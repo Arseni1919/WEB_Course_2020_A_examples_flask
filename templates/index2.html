@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+    {% set page_name = 'Index Page' %}
+    {% include('header2.html') %}
+    <h2>Hello, {{ name | default('guest', true) | upper }}! </h2>
+    <div id="div1" class="dicClass">iiiiiii</div>
+    <script src="static/js/index.js"></script>
+</body>
+</html>

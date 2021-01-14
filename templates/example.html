@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>The Form Example page</h1>
+    <h2>The method of request is: {{ request_method }}</h2>
+
+    POST form:
+    <form action="/example" method="POST">
+        <input name="username">
+        <input name="password">
+        <input type="submit">
+    </form>
+    {% if username %}
+        <h4>Your username is: {{ username }}</h4>
+    {% else %}
+        <h4>Hello, stranger!</h4>
+    {% endif %}
+    <br>
+
+    GET form:
+    <form action="/example" method="GET">
+        <input name="name">
+        <input name="second_name">
+        <input type="submit">
+    </form>
+
+    {% if second_name %}
+        <h4>Your second name is: {{ second_name }}</h4>
+    {% else %}
+        <h4>Hello, man!</h4>
+    {% endif %}
+    <br>
+
+{#    <h4>Hello, {{ name | default('user', true) }} {{ second_name }}!</h4>#}
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+{#    link:css#}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <title>Document</title>
+</head>
+<body>
+{#    {% set page_name = 'INDEX' %}#}
+{#    {% include 'header.html' %}#}
+    {% set user = {"name": "Ariel", "second_name": "Perchik", "id": "special_user_id"} %}
+    <h1>Hello {{ user.name | default('World', true) | upper  }} {{ user.second_name }}!:))))</h1>
+    <span {% if user.id %} class="class1" {% endif %}>
+        Hello {{ user.name }}!
+    </span>
+{#    {% from 'header.html' import hedder_message %}#}
+{#    <h3>The header message: {{ hedder_message }}</h3>#}
+</body>
+</html>

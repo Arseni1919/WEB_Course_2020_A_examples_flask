@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include 'head.html' %}
+<body>
+    {% set page_name = 'Homepage!' %}
+
+    {% include 'header.html' %}
+
+    {% from 'header.html' import hedder_message %}
+
+    {% if username %}
+        <h1>Hello, {{ username.firstname }} {{ username.lastname }}</h1>
+        <span class="{% if username.gender == 'b' %} boys {% else %} girls {% endif %}">Yohoo</span>
+{#        <span class="{% if username.gender == 'b' %} boys {% else %} girls {% endif %}">Yohooo</span>#}
+
+        <br>
+        <br>
+    {% else %}
+        <h1>Welcome stranger!:)</h1>
+    {% endif %}
+    {# Hobby: {{ hobbies[0] }} #}
+    <h3>My Hobbies:</h3>
+
+    <ol>
+        {% for hobby in hobbies %}
+            <li>{{ hobby }}</li>
+        {% endfor %}
+    </ol>
+
+    <h3>User:</h3>
+    <ul>
+        {% for k, v in username.items() %}
+            <li>{{ k }}: {{ v }}</li>
+        {% endfor %}
+    </ul>
+{#    <h3>Degrees:</h3>#}
+{#    <br>#}
+{#    <ul>#}
+{#        {% for degree in degrees %}#}
+{#        <li>{{ degree }}</li>#}
+{#        {% endfor %}#}
+{#    </ul>#}
+
+    {% block products %}
+        <h3>Products:</h3>
+
+    {% endblock %}
+
+
+    <br>
+    The message: {{ hedder_message }}
+
+    {% include 'footer.html' %}
+</body>
+</html>

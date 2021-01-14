@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+
+    {% set page_name = 'Home Page' %}
+    {% include('header2.html') %}
+    {% from 'header2.html' import header_message %}
+
+    Header message: {{ header_message }}
+    {% if user %}
+        <h3>User Info:</h3>
+        {% for k, v in user.items() %}
+            {{ k }}: {{ v }}
+            <br>
+        {% endfor %}
+        {% block cart %}
+{#        <h4 class="{% if user.gender == 'boy' %} boys {% else %} girls {% endif %}">{{ user.firstname }} {{ user.lastname }}</h4>#}
+        <h3>Hobbies:</h3>
+        <ol>
+            {% for hobby in hobbies %}
+                <li>{{ hobby }}</li>
+            {% endfor %}
+        </ol>
+        <br>
+        <h3>Degrees:</h3>
+        <ul>
+            {% for degree in degrees %}
+                <li>{{ degree }}</li>
+            {% endfor %}
+        </ul>
+        {% endblock %}
+    {% else %}
+        <h3>Hello, stranger!</h3>
+    {% endif %}
+
+
+
+
+
+    {% include('footer.html') %}
+</body>
+</html>
